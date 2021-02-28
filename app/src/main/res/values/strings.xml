@@ -2,4 +2,11 @@
     <string name="app_name">Weather App</string>
     <string name="show_weather">Показать погоду</string>
     <string name="input_city">Введите название города или индекс</string>
+    <string name="radiobutton">Сегодня</string>
+    <string name="radiobuttonTommorow">Завтра</string>
+    <string name="radiobuttonAwterTommorow">%s</string>
+    <string name="radiobutton2AwterTommorow">%s</string>
+    <string name="radiobutton3AfterTommorow">%s</string>
+    <string name="swichxtra">Подробно</string>
+    <string name="buttonExtra">Дополнительная информация</string>
 </resources>

@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <EditText
@@ -14,9 +14,9 @@
         android:layout_margin="8sp"
         android:background="@color/white"
         android:ems="10"
+        android:hint="@string/input_city"
         android:inputType="textPersonName"
         android:padding="8sp"
-        android:hint="@string/input_city"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -28,49 +28,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="8sp"
         android:background="@color/design_default_color_primary_variant"
-        android:text="@string/show_weather"
         android:onClick="onClickShowWeather"
+        android:text="@string/show_weather"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextCity" />
-
-    <TextView
-        android:id="@+id/textViewWeather"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8sp"
-        android:textColor="@color/red"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonExtra">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textViewWeatherExtra"
-                android:visibility="invisible"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8sp"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
-        </LinearLayout>
-    </ScrollView>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -84,13 +49,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonShowWeather">
 
         <RadioButton
             android:id="@+id/radioButtonToday"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8sp"
@@ -104,7 +67,6 @@
 
         <RadioButton
             android:id="@+id/radioButtonTommorow"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8sp"
@@ -117,7 +79,6 @@
 
         <RadioButton
             android:id="@+id/radioButtonTommorow2"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8sp"
@@ -130,40 +91,81 @@
 
         <RadioButton
             android:id="@+id/radioButtonTommorow3"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8sp"
+            android:layout_weight="1"
             android:button="@null"
             android:drawableBottom="@android:drawable/btn_radio"
             android:gravity="center"
-            android:layout_weight="1"
             android:text="@string/radiobutton2AwterTommorow"
             android:textStyle="bold|italic" />
 
         <RadioButton
             android:id="@+id/radioButtonTommorow4"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8sp"
+            android:layout_weight="1"
             android:button="@null"
             android:drawableBottom="@android:drawable/btn_radio"
             android:gravity="center"
-            android:layout_weight="1"
             android:text="@string/radiobutton3AfterTommorow"
             android:textStyle="bold|italic" />
 
     </RadioGroup>
 
-    <Button
-        android:id="@+id/buttonExtra"
-        android:layout_margin="16sp"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textViewWeather"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/buttonExtra"
+        android:layout_margin="16sp"
+        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewWeather" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWeather"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewWeatherExtra"
+                android:visibility="invisible"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="18sp"
+                android:text="TextView" />
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="203dp" />
+
+    <Button
+        android:id="@+id/buttonExtra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:text="@string/buttonExtra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/buttonShowWeather" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
