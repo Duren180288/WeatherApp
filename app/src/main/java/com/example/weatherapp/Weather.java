@@ -47,7 +47,7 @@ public class Weather {
                 for (int i = 0; i < jsonArrLength; i++) {
                     int degOfWind = jsonObject.getJSONArray("list").getJSONObject(i).getJSONObject("wind").getInt(keyForTaking);
                     String descriptionOfWind = getWindirrectionDescription(degOfWind);
-                    arrayDescripVisibilTime.add(descriptionOfWind + " (" + jsonObject.getJSONArray("list").getJSONObject(i).getJSONObject("wind").getString(keyForTaking) + ")");
+                    arrayDescripVisibilTime.add(descriptionOfWind + " (" + degOfWind + ")");
                     ;
                 }
             } else if (keyForTaking.equals("dt_txt") || keyForTaking.equals("visibility")) {

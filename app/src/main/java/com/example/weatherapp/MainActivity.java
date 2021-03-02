@@ -12,13 +12,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
@@ -51,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton buttonTommorow2;
     private RadioButton buttonTommorow3;
     private RadioButton buttonTommorow4;
+    private String dayOfWeek;
 
 
     @Override
@@ -64,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         buttonTommorow = findViewById(R.id.radioButtonTommorow);
         buttonTommorow2 = findViewById(R.id.radioButtonTommorow2);
         buttonTommorow3 = findViewById(R.id.radioButtonTommorow3);
-        buttonTommorow3 = findViewById(R.id.radioButtonTommorow4);
+        buttonTommorow4 = findViewById(R.id.radioButtonTommorow4);
         radioGroup = findViewById(R.id.radioGroup);
 
 
@@ -75,6 +70,15 @@ public class MainActivity extends AppCompatActivity {
             inputJSONstring = task.execute(url).get();
             int index = radioGroup.indexOfChild(findViewById(radioGroup.getCheckedRadioButtonId()));      //index of current accepted button
             getContent(inputJSONstring, index);
+
+            TimeOfObservation timeOfObservation = new TimeOfObservation();
+            String s = String.format(getString(R.string.radiobuttonAfterTommorow), timeOfObservation.getDateForRadioButton(timeOfWeather.get(0), 2));
+            buttonTommorow2.setText(s);
+            s = String.format(getString(R.string.radiobutton2AfterTommorow), timeOfObservation.getDateForRadioButton(timeOfWeather.get(0), 3));
+            buttonTommorow3.setText(s);
+            s = String.format(getString(R.string.radiobutton3AfterTommorow), timeOfObservation.getDateForRadioButton(timeOfWeather.get(0), 4));
+            buttonTommorow4.setText(s);
+
 
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
@@ -148,16 +152,22 @@ public class MainActivity extends AppCompatActivity {
         visibility = weather.getDescripVisibilTime(inputJSONstring, "visibility");
         timeOfWeather = weather.getDescripVisibilTime(inputJSONstring, "dt_txt");
 
-        System.out.println(arrayTempNow);
-        System.out.println(arrayTempFeelsNow);
-        String today = getDate(timeOfWeather.get(0));
+//        System.out.println(arrayTempNow);
+//        System.out.println(arrayTempFeelsNow);
+
+        TimeOfObservation timeOfObservation = new TimeOfObservation();
+        String resultFromTimeOfObservation = timeOfObservation.getDateForView(timeOfWeather.get(0), 0);
+        String dateForOut = resultFromTimeOfObservation.substring(0, resultFromTimeOfObservation.indexOf("&"));
+        String dateForSearch = resultFromTimeOfObservation.substring(resultFromTimeOfObservation.indexOf("&") + 1);
+        System.out.println(dateForOut);
+        System.out.println(dateForSearch);
 
 
-        showWeather = String.format("Погода в г. %s \nНаселение: %s человек " +
-                        "\n\nТемпература: %s\nОщущается как: %s \nВлажность: %s%% \n" +
-                        "Сегодня:%s",
+        showWeather = String.format("Дата: %s\nПогода в г. %s \nНаселение: %s человек " +
+                        "\n\nТемпература: %s\nОщущается как: %s \nВлажность: %s%% \n",
+                dateForOut,
                 cityParameters.get("cityName"), cityParameters.get("population"),
-                arrayTempNow.get(0), arrayTempFeelsNow.get(0), arrayHumidity.get(0), today);
+                arrayTempNow.get(0), arrayTempFeelsNow.get(0), arrayHumidity.get(0));
 
         showWeatherExtra = String.format("Рассвет: %s \nЗакат: %s \nПродолжительность дня: %s ",
                 cityParameters.get("timeOfSunrise"),
@@ -172,40 +182,21 @@ public class MainActivity extends AppCompatActivity {
             textViewWeatherExtra.setText("Motherfucker!");
         } else if (positionRadioButton == 2) {
 
-            String s = String.format(getString(R.string.radiobutton2AwterTommorow), "21.01.2021");
-            buttonTommorow2.setText(s);
+
             textViewWeather.setText("Hello2!");
             textViewWeatherExtra.setText("Motherfucker!");
         }
 
     }
 
-    private String getDate(String date) {
-        String today;
-        String tommorow;
-        String tommorow2;
-        String tommorow3;
-        String tommorow4;
-        String result = "";
-        Date date1 = null;
-        if (date != null) {
-            DateFormat dateFormatForOut = new SimpleDateFormat("EEEE (dd-MM-yyyy HH:mm)", Locale.getDefault());
-            try {
-               date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(date);
-                System.out.println(date);
-                System.out.println(date1);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(date1);
-            System.out.println("today" + calendar.getTime());
-            result = String.valueOf(dateFormatForOut.format(calendar.getTime()));
-            calendar.add(Calendar.DAY_OF_MONTH, 1);
-            System.out.println(calendar.getTime());
-        }
-        return result;
+    private String makeAStringForOutPut(String dateForSearch) {
+        String finalString = "";
+
+
+        return finalString;
     }
+}
+
 
 //    public void onClickChangeDay(View view) {
 //        button = (RadioButton) view;
@@ -356,6 +347,6 @@ public class MainActivity extends AppCompatActivity {
 //        }
 
 
-}
+
 
 

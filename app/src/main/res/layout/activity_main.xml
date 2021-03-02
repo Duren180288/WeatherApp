@@ -125,7 +125,7 @@
             android:button="@null"
             android:drawableBottom="@android:drawable/btn_radio"
             android:gravity="center"
-            android:text="@string/radiobuttonAwterTommorow"
+            android:text="@string/radiobuttonAfterTommorow"
             android:textStyle="bold|italic" />
 
         <RadioButton
@@ -138,7 +138,7 @@
             android:drawableBottom="@android:drawable/btn_radio"
             android:gravity="center"
             android:layout_weight="1"
-            android:text="@string/radiobutton2AwterTommorow"
+            android:text="@string/radiobutton2AfterTommorow"
             android:textStyle="bold|italic" />
 
         <RadioButton
