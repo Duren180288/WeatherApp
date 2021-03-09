@@ -83,7 +83,7 @@
                         android:id="@+id/textViewWeatherMorning"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8sp"
+                        android:layout_marginEnd="32sp"
                         android:textColor="@android:color/black"
                         android:textSize="16sp"
                         android:visibility="visible" />
@@ -104,7 +104,7 @@
                     <TextView
                         android:id="@+id/textViewWeatherAfternoon"
                         android:layout_width="wrap_content"
-                        android:layout_marginEnd="8sp"
+                        android:layout_marginEnd="32sp"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
                         android:textSize="16sp"
@@ -130,7 +130,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:layout_marginEnd="8sp"
+                        android:layout_marginEnd="32sp"
                         android:textSize="16sp"
                         android:visibility="visible" />
 
@@ -153,7 +153,7 @@
                         android:id="@+id/textViewWeatherNight"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8sp"
+                        android:layout_marginEnd="32sp"
                         android:textColor="@android:color/black"
                         android:textSize="16sp"
                         android:visibility="visible" />
@@ -283,7 +283,7 @@
             android:layout_width="wrap_content"
 
             android:layout_height="40sp"
-            android:layout_marginTop="38sp"
+            android:layout_marginTop="40sp"
             android:layout_marginBottom="32sp"
             tools:srcCompat="@tools:sample/avatars" />
 
@@ -294,10 +294,10 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
-            android:id="@+id/imageViewTimeDay"
+            android:id="@+id/imageViewVisibility"
             android:layout_width="wrap_content"
             android:layout_height="40sp"
-            android:layout_marginTop="32sp"
+            android:layout_marginTop="40sp"
             tools:srcCompat="@tools:sample/avatars" />
     </LinearLayout>
 

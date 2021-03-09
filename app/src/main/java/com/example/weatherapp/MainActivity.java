@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imageViewTemp;
     private ImageView imageViewHumidity;
     private ImageView imageViewWind;
-    private ImageView imageViewTimeDay;
+    private ImageView imageViewVisibility;
     private String showWeather;
     private String showWeatherExtra;
     private String city;
@@ -84,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         imageViewTemp = findViewById(R.id.imageViewTemp);
         imageViewHumidity = findViewById(R.id.imageViewHumidity);
         imageViewWind = findViewById(R.id.imageViewWind);
-        imageViewTimeDay = findViewById(R.id.imageViewTimeDay);
+        imageViewVisibility = findViewById(R.id.imageViewVisibility);
         buttonToday = findViewById(R.id.radioButtonToday);
         buttonTommorow = findViewById(R.id.radioButtonTommorow);
         buttonTommorow2 = findViewById(R.id.radioButtonTommorow2);
@@ -114,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
             imageViewTemp.setImageResource(R.drawable.temp);
             imageViewHumidity.setImageResource(R.drawable.humidity);
             imageViewWind.setImageResource(R.drawable.roseofwinds);
-            imageViewTimeDay.setImageResource(R.drawable.timeday);
+            imageViewVisibility.setImageResource(R.drawable.distance);
 
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
@@ -263,10 +262,10 @@ public class MainActivity extends AppCompatActivity {
                 finalString.append(
                         String.format("%s, \nОщущается как: %s \nНа улице %s " +
                                         "\n\n\nВлажность: %s%%\n\n\n\nВетер: %s, %s м/с" +
-                                        "\n\n\n\nПродолжительность дня: %s  ",
+                                        "\n\n\n\nВидимость: %s м.  ",
                                 arrayTemp.get(i), arrayTempFeels.get(i), description.get(i),
                                 arrayHumidity.get(i), windDirection.get(i), windSpeed.get(i),
-                                cityParameters.get("timeDayLength")));
+                                visibility.get(i)));
             }
         }
         return finalString.toString();
