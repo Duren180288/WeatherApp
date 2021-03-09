@@ -15,6 +15,7 @@ public class Weather {
     private String windDirection;             // in dergees;
     private String visibility;
     private String timeOfWeather;
+    private String iconWeather;
     private ArrayList<Integer> arrayTempHumidWind;
     private ArrayList<String> arrayDescripVisibilTime;
 
@@ -26,7 +27,7 @@ public class Weather {
             for (int i = 0; i < jsonArrLength; i++) {
                 arrayTempHumidWind.add((int) Math.round(jsonObject.getJSONArray("list").getJSONObject(i).getJSONObject("main").getDouble(keyForTaking)));
             }
-            System.out.println("LENGTH  " + jsonObject.getJSONArray("list").length());
+           // System.out.println("LENGTH  " + jsonObject.getJSONArray("list").length());
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -47,7 +48,7 @@ public class Weather {
                 for (int i = 0; i < jsonArrLength; i++) {
                     int degOfWind = jsonObject.getJSONArray("list").getJSONObject(i).getJSONObject("wind").getInt(keyForTaking);
                     String descriptionOfWind = getWindirrectionDescription(degOfWind);
-                    arrayDescripVisibilTime.add(descriptionOfWind + " (" + degOfWind + ")");
+                    arrayDescripVisibilTime.add(descriptionOfWind + " (" + degOfWind +"°)");
                     ;
                 }
             } else if (keyForTaking.equals("dt_txt") || keyForTaking.equals("visibility")) {

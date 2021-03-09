@@ -7,6 +7,8 @@
     <string name="radiobuttonAfterTommorow">%s</string>
     <string name="radiobutton2AfterTommorow">%s</string>
     <string name="radiobutton3AfterTommorow">%s</string>
-    <string name="swichxtra">Подробно</string>
     <string name="buttonExtra">Дополнительная информация</string>
+    <string name="not_date">not date</string>
+    <string name="nightweather">NightWeather</string>
+    <string name="evningweather">EvningWeather</string>
 </resources>

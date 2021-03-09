@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/wetherback"
     tools:context=".MainActivity">
 
     <EditText
@@ -14,9 +14,9 @@
         android:layout_margin="8sp"
         android:background="@color/white"
         android:ems="10"
+        android:hint="@string/input_city"
         android:inputType="textPersonName"
         android:padding="8sp"
-        android:hint="@string/input_city"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -28,8 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="8sp"
         android:background="@color/design_default_color_primary_variant"
-        android:text="@string/show_weather"
         android:onClick="onClickShowWeather"
+        android:text="@string/show_weather"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -39,38 +39,128 @@
 
     <TextView
         android:id="@+id/textViewWeather"
+        android:gravity="center"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8sp"
+
         android:textColor="@color/red"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
-    <ScrollView
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonExtra"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonExtra">
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWeather">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textViewWeatherExtra"
-                android:visibility="invisible"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8sp"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
-        </LinearLayout>
-    </ScrollView>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageViewMorning"
+                        android:layout_width="50sp"
+                        android:layout_height="50sp"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                    <TextView
+                        android:id="@+id/textViewWeatherMorning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8sp"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageViewAfternon"
+                        android:layout_width="50sp"
+                        android:layout_height="50sp"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                    <TextView
+                        android:id="@+id/textViewWeatherAfternoon"
+                        android:layout_width="wrap_content"
+                        android:layout_marginEnd="8sp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageViewEvening"
+                        android:layout_width="50sp"
+                        android:layout_height="50sp"
+                        tools:srcCompat="@tools:sample/avatars"
+                        android:contentDescription="@string/evningweather" />
+
+                    <TextView
+                        android:id="@+id/textViewWeatherEvening"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_marginEnd="8sp"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageViewNight"
+                        android:layout_width="50sp"
+                        android:layout_height="50sp"
+                        tools:srcCompat="@tools:sample/avatars"
+                        android:contentDescription="@string/nightweather" />
+
+                    <TextView
+                        android:id="@+id/textViewWeatherNight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8sp"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </HorizontalScrollView>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -100,6 +190,7 @@
             android:drawableBottom="@android:drawable/btn_radio"
             android:gravity="center"
             android:text="@string/radiobutton"
+            android:textSize="12sp"
             android:textStyle="bold|italic" />
 
         <RadioButton
@@ -113,6 +204,7 @@
             android:drawableBottom="@android:drawable/btn_radio"
             android:gravity="center"
             android:text="@string/radiobuttonTommorow"
+            android:textSize="12sp"
             android:textStyle="bold|italic" />
 
         <RadioButton
@@ -126,6 +218,7 @@
             android:drawableBottom="@android:drawable/btn_radio"
             android:gravity="center"
             android:text="@string/radiobuttonAfterTommorow"
+            android:textSize="12sp"
             android:textStyle="bold|italic" />
 
         <RadioButton
@@ -134,11 +227,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8sp"
+            android:layout_weight="1"
             android:button="@null"
             android:drawableBottom="@android:drawable/btn_radio"
             android:gravity="center"
-            android:layout_weight="1"
             android:text="@string/radiobutton2AfterTommorow"
+            android:textSize="12sp"
             android:textStyle="bold|italic" />
 
         <RadioButton
@@ -147,23 +241,64 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8sp"
+            android:layout_weight="1"
             android:button="@null"
             android:drawableBottom="@android:drawable/btn_radio"
             android:gravity="center"
-            android:layout_weight="1"
             android:text="@string/radiobutton3AfterTommorow"
+            android:textSize="12sp"
             android:textStyle="bold|italic" />
 
     </RadioGroup>
 
     <Button
         android:id="@+id/buttonExtra"
-        android:layout_margin="16sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16sp"
+
+        android:background="@color/design_default_color_secondary_variant"
         android:text="@string/buttonExtra"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="99dp"
+        android:layout_height="329dp"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewWeather" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewWeather">
+
+        <ImageView
+            android:id="@+id/imageViewTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:layout_marginTop="56sp"
+
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/imageViewHumidity"
+            android:layout_width="wrap_content"
+
+            android:layout_height="40sp"
+            android:layout_marginTop="38sp"
+            android:layout_marginBottom="32sp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/imageViewWind"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/imageViewTimeDay"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:layout_marginTop="32sp"
+            tools:srcCompat="@tools:sample/avatars" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

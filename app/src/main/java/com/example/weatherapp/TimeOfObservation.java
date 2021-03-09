@@ -23,7 +23,7 @@ public class TimeOfObservation {
 
         if (date != null) {
             DateFormat dateFormatForOut = new SimpleDateFormat("EEEE (dd-MM-yyyy)", Locale.getDefault());
-            DateFormat dateFormatForSearch = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+            DateFormat dateFormatForSearch = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
             try {
                 date1 = dateFormatForSearch.parse(date);
                 //System.out.println(date);

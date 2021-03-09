@@ -40,12 +40,12 @@ public class CityDescription {
             int minuteSunrise = calender.get(Calendar.MINUTE);
             timeOfSunrise = String.format(Locale.getDefault(), "%d:%02d", hourSunrise, minuteSunrise);
 
-
             calender.setTimeInMillis(sunset + timeZone);
             int hourSunset = calender.get(Calendar.HOUR_OF_DAY);
             int minuteSunset = calender.get(Calendar.MINUTE);
             timeOfSunset = String.format(Locale.getDefault(), "%d:%02d", hourSunset, minuteSunset);
             //System.out.println(hourSunset + ":" + minuteSunset);
+
             calender.setTimeInMillis(dayLength);
             String hourDayLength = String.valueOf(calender.get(Calendar.HOUR_OF_DAY));
             String minuteDayLength = String.valueOf(calender.get(Calendar.MINUTE));
